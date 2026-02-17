@@ -1,0 +1,59 @@
+# ============================
+# Python Virtual Environments
+# ============================
+venv/
+.env/
+.venv/
+env/
+
+# ============================
+# Python Cache Files
+# ============================
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.py[cod]
+*$py.class
+
+# ============================
+# Distribution / Build
+# ============================
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ============================
+# Logs
+# ============================
+*.log
+
+# ============================
+# IDE / Editor
+# ============================
+.vscode/
+.idea/
+*.code-workspace
+
+# ============================
+# OS Files
+# ============================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================
+# Environment Variables
+# ============================
+*.env
+
+# ============================
+# Windows Specific Python Files
+# ============================
+Lib/
+Include/
+Scripts/
+python.exe
+pythonw.exe
+pyvenv.cfg
