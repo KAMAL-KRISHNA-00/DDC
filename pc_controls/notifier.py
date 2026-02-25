@@ -1,24 +1,39 @@
 from plyer import notification
 
 
-def show_interrupt_notification():
-    notification.notify(
-        title="Door Interruption Detected",
-        message="Microphone has been muted for privacy.",
-        timeout=5
-    )
+class Notifier:
+    DEFAULT_TIMEOUT = 5
 
+    @staticmethod
+    def _notify(title: str, message: str, timeout: int = DEFAULT_TIMEOUT):
+        try:
+            notification.notify(
+                title=title,
+                message=message,
+                timeout=timeout
+            )
+        except Exception as e:
+            print(f"[Notifier] Failed to send notification: {e}")
 
-def show_resume_notification():
-    notification.notify(
-        title="Meeting Resumed",
-        message="Microphone can now be unmuted.",
-        timeout=5
-    )
+    # ---------- PUBLIC METHODS ----------
 
-def show_emergency_notification():
-    notification.notify(
-        title="Emergency Request Outside",
-        message="Select a response (WAIT / DO NOT DISTURB).",
-        timeout=5
-    )
+    @classmethod
+    def interrupt(cls):
+        cls._notify(
+            title="Door Interruption Detected",
+            message="Microphone has been muted for privacy."
+        )
+
+    @classmethod
+    def resume(cls):
+        cls._notify(
+            title="Meeting Resumed",
+            message="Microphone can now be unmuted."
+        )
+
+    @classmethod
+    def emergency(cls):
+        cls._notify(
+            title="Emergency Request Outside",
+            message="Select a response (WAIT / DO NOT DISTURB)."
+        )
